@@ -4,16 +4,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Christian Medallada</title>
-    <link rel="stylesheet" href="style.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="./img/favicon.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
   </head>
   <body>
-    <div class="container">
+
+    <div class="intro-container">
+      <h1 class="logo-header">
+        <span class="logo1">Chris</span><span class="logo1">Tian</span>
+      </h1>
+    </div>
+
+    <div class="container" >
       <!-- INTRODUCTION -->
+      <div class="cursor"></div>
+      <div class="cursor-follower"></div>
       <div class="intro">
         <div class="salute">
           <div class="saluteTextContainer">
@@ -30,6 +41,8 @@
           <h2 class="jobCompany">at Wizard Group Corp</h2>
         </div>
       </div>
+
+
       <!-- PROJECTS -->
       <div class="projects">
         <h1 class="projectsTitle">Here are some of my projects</h1>
@@ -77,54 +90,53 @@
           </div>
         </div>
       </div>
-      <!-- GITHUB -->
-      <div class="githubContainer">
-        <h1 class="contactTitle">Contact Me</h1>
-        <div class="contactChart">
-          <!-- CONTACT -->
-          <form class="contactForm" id="contactForm" action="#" method="POST">
-            <div class="inputGroup">
-              <div class="inputContainer">
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="Name"
-                />
-                <span class="error" id="nameError"></span>
-              </div>
-              <div class="inputContainer">
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="Email"
-                />
-                <span class="error" id="emailError"></span>
-              </div>
-            </div>
-            <div class="inputContainer">
-              <textarea
-                id="message"
-                name="message"
-                placeholder="Your Message"
-                rows="4"
-              ></textarea>
-              <span class="error" id="messageError"></span>
-            </div>
-            <button type="submit" class="contactButton">Submit</button>
-          </form>
-                 
-          <div class="boxContainer"></div>
-        </div>
-        <div class="githubSm">
-          <a href="">
-            <img src="./img/github.png" alt="" />
-          </a>
-          <h2>Find Me on Github</h2>
+
+      <div class="row" data-aos="fade-up">
+        <div class="aboutList">
+              <h3 class="aboutTitle">Tech stack.</h3><br>
+              <marquee behavior="scroll" direction="left" scrollamount="20">
+                    <img width="200" height="200" src="./img/React.png" alt="">
+                    <img width="200" height="200" src="./img/TypeScript.png" alt="">
+                    <img width="200" height="200" src="./img/HTML.png" alt="">
+                    <img width="200" height="200" src="./img/Git.png" alt="">
+                    <img width="200" height="200" src="./img/CSS.png" alt="">
+                    <img width="200" height="200" src="./img/Github.png" alt="">
+                    <img width="200" height="200" src="./img/JavaScript.png" alt="">
+                    <img width="300" height="200" src="./img/PHP.png" alt="">
+                    <img width="200" height="200" src="./img/Python.png" alt="">
+                    <img width="300" height="200" src="./img/mySQL.png" alt="">
+                    <img width="150" height="200" src="./img/Figma.png" alt="">
+                    <img width="300" height="200" src="./img/Docker.png" alt="">
+                    <img width="200" height="200" src="./img/Laravel.png" alt="">
+                    <img width="200" height="200" src="./img/NextJS.webp" alt="">
+                    <img width="200" height="200" src="./img/Jenkins.png" alt="">
+                    <img width="250" height="200" src="./img/Terraform.png" alt="">
+                    <img width="300" height="200" src="./img/Ansible.webp" alt="">
+              </marquee>
         </div>
       </div>
+
+      <!-- CONTACT -->
+      <div class="contactContainer">
+        <h1 class="contactTitle">Contact Me</h1>
+          <form  class="contactForm" id="contactForm">
+            <div class="inputGroup">
+                <div class="inputContainer">
+                    <input type="text" id="name" name="name" placeholder="Name" required />
+                </div>
+                <div class="inputContainer">
+                    <input type="email" id="email" name="email" placeholder="Email" required />
+                </div>
+            </div>
+            <div class="inputContainer">
+                <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="contactButton" id="submitButton">Submit</button>
+            <span id="formMessage" class="formMessage"></span>
+          </form>         
+          <div class="boxContainer"></div>
+      </div>
     </div>
-    <script src="app.js"></script>
+    <script src="./app.js"></script>
   </body>
 </html>

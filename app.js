@@ -26,6 +26,7 @@ window.addEventListener("scroll", ()=>{
 })
 
 
+
 // Error Validation
 document.getElementById("contactForm").addEventListener("submit", function (e) {
   e.preventDefault();
@@ -82,3 +83,126 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
     // e.target.submit();
   }
 });
+
+
+// Initialize EmailJS with your user ID
+emailjs.init('9Jl4LhOUhbPQRu-A0');
+
+// Listen for the form submit event
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();  // Prevent the default form submission
+
+    // Get the submit button and form message span
+    const submitButton = document.getElementById('submitButton');
+    const formMessage = document.getElementById('formMessage');
+
+    // Change the button to show loading message
+    submitButton.innerText = 'Submitting...';
+    submitButton.disabled = true;  // Disable the button to prevent multiple submissions
+
+    // Get form values
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    // Prepare the data to be sent in the email
+    const templateParams = {
+        name: name,
+        email: email,
+        message: message
+    };
+
+    // Send the email using EmailJS
+    emailjs.send('service_h43vmup', 'template_n7wqzll', templateParams)
+        .then(function(response) {
+            // On success
+            console.log('SUCCESS!', response);
+            formMessage.textContent = 'Your message has been sent!';
+            formMessage.style.color = 'green'; // Success message in green
+
+            // Reset the form after successful submission
+            setTimeout(() => {
+                formMessage.textContent = '';  // Clear success message
+                submitButton.innerText = 'Submit';  // Reset button text
+                submitButton.disabled = false;  // Enable the button again
+                document.getElementById('contactForm').reset();
+            }, 3000);  // After 3 seconds, reset the form
+
+        }, function(error) {
+            // On error
+            console.log('FAILED...', error);
+            formMessage.textContent = 'Something went wrong. Please try again later.';
+            formMessage.style.color = 'red'; // Error message in red
+            submitButton.innerText = 'Submit';  // Reset button text on error
+            submitButton.disabled = false;  // Enable the button again
+        });
+});
+
+
+// Intro Animation
+let intro = document.querySelector('.intro-container');
+let logo1 = document.querySelector('.logo-header');
+let logo1Span = document.querySelectorAll('.logo1');
+
+window.addEventListener('DOMContentLoaded', ()=>{
+
+    setTimeout(()=>{
+
+        logo1Span.forEach((span, idx)=>{
+            setTimeout(()=>{
+                span.classList.add('active');
+            },(idx + 1) * 400)
+        });
+
+        setTimeout (()=>{
+            logo1Span.forEach((span, idx)=>{
+                
+                setTimeout (()=>{
+                    span.classList.remove('active');
+                    span.classList.add('fade');
+                }, (idx + 1) * 50)
+            })
+        },2000);
+
+        setTimeout(()=>{
+            intro.style.top = '-100vh';
+        },2300)
+            
+    })
+})
+
+// Cursor Animation
+var cursor = $(".cursor"),
+  follower = $(".cursor-follower");
+
+  var posX = 0,
+      posY = 0,
+      mouseX = 0,
+      mouseY = 0;
+
+  TweenMax.to({}, 0.016, {
+      repeat: -1,
+      onRepeat: function() {
+          posX += (mouseX - posX) / 9;
+          posY += (mouseY - posY) / 9;
+
+          TweenMax.set(follower, {
+              css: {
+                  left: posX - 20,
+                  top: posY - 20
+              }
+          });
+
+          TweenMax.set(cursor, {
+              css: {
+                  left: mouseX,
+                  top: mouseY
+              }
+          });
+      }
+  });
+
+  $(document).on("mousemove", function(e) {
+      mouseX = e.pageX;
+      mouseY = e.pageY;
+  });
