@@ -171,7 +171,8 @@ window.addEventListener('DOMContentLoaded', ()=>{
     })
 })
 
-// Cursor Animation
+// Cursor 
+
 var cursor = $(".cursor"),
   follower = $(".cursor-follower");
 

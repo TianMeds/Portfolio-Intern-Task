@@ -213,7 +213,7 @@
 
 .projectDesc {
   font-size: var(--font-project-desc);
-  color: var(--text-light-gray);
+  color: #fff;
   text-align: justify;
   line-height: 40px;
 }
@@ -341,7 +341,7 @@
   resize: none;
 }
 
-.error {
+.errorMessage{ 
   color: red;
   font-size: 14px;
   position: absolute;
@@ -487,4 +487,13 @@
     font-size: 30px;
   }
 
+}
+
+@media  screen and (max-width: 425px) {
+  .name {
+    font-size: 10vw;
+  }
+  .jobTitle {
+    font-size: 5vw;
+  }
 }

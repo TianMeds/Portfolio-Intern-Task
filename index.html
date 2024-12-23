@@ -71,7 +71,7 @@
           <div class="projectDetail">
             <h1 class="projectTitle">GJJSP-SIS</h1>
             <p class="projectDesc">
-              A proposed system developed by the See Solutions Team aimed at supporting the Gado and Jess Jalandoni Scholarship Project (GJJSP) Team, under the Assisi Development Foundation, Inc. The system is designed to address the challenges of managing scholar information and streamlining submission processes.
+              A proposed system developed by the See Solutions Team aimed at supporting the Gado and Jess Jalandoni Scholarship Project (GJJSP) Team, under the Assisi Development Foundation, Inc.
             </p>
           </div>
         </div>
@@ -122,14 +122,17 @@
           <form  class="contactForm" id="contactForm">
             <div class="inputGroup">
                 <div class="inputContainer">
-                    <input type="text" id="name" name="name" placeholder="Name" required />
+                    <input type="text" id="name" name="name" placeholder="Name"/>
+                    <span id="nameError" class="errorMessage"></span>
                 </div>
                 <div class="inputContainer">
-                    <input type="email" id="email" name="email" placeholder="Email" required />
+                    <input type="email" id="email" name="email" placeholder="Email" />
+                    <span id="emailError" class="errorMessage"></span>
                 </div>
             </div>
             <div class="inputContainer">
-                <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea>
+                <textarea id="message" name="message" placeholder="Your Message" rows="4"></textarea>
+                <span id="messageError" class="errorMessage"></span>
             </div>
             <button type="submit" class="contactButton" id="submitButton">Submit</button>
             <span id="formMessage" class="formMessage"></span>
